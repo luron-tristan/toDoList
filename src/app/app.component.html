@@ -1,0 +1,14 @@
+<div class="main">
+  <h1>ToDo</h1>
+  <div class="container">
+    <div class="row">
+      <div (click)="changeState(0)" class="col-6" [class.active]="navState === 0">Current Tasks</div>
+      <div (click)="changeState(1)" class="col-6" [class.active]="navState === 1">Completed Tasks</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <current-tasks *ngIf="navState === 0"></current-tasks>
+    <completed-tasks *ngIf="navState === 1"></completed-tasks>
+  </div>
+</div>

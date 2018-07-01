@@ -1,0 +1,35 @@
+<form #f="ngForm" (ngSubmit)="addToTaskList(f)">
+  <div class="form-group">
+    <label for="title">Add a new task</label>
+    <input 
+      type="text"
+      required
+      ngModel
+      #title="ngModel"
+      name="title"
+      class="form-control"
+      id="title">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+
+<div *ngIf="taskList" id="taskList">
+  <div class="header row">
+    <p class="col-9 text">Title</p>
+    <div class="col-1 text-center text"><p>Priority</p></div>
+    <div class="col-1 text-center text"><p>Completed</p></div>
+  </div>
+
+  <div *ngFor="let task of taskList; let i = index" class="row">
+    <p class="col-9">{{ task.title }}</p>
+    <div class="col-1 text-center">
+      <i class="fa" [ngClass]="task.isPriority ? 'fa-star' : 'fa-star-o'" (click)="togglePriority(task, i)"></i>
+    </div>
+    <div class="col-1 text-center">
+      <i (click)="complete(task, i)" class="fa fa-check fa-2x" aria-hidden="true"></i>
+    </div>
+    <div class="col-1 text-center">
+      <i class="fa fa-trash" (click)="deleteTask('taskList', i)"></i>
+    </div>
+  </div>
+</div>

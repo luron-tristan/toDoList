@@ -1,0 +1,20 @@
+#title {
+  display: inline-block;
+  width: 80%;
+}
+
+.fa-star {
+  color: gold;
+}
+
+.form-control {
+  margin: 0 20px;
+}
+
+.text {
+  color: #1fb6ff;
+}
+
+.btn {
+  vertical-align: inherit;
+}
